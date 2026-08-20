@@ -356,7 +356,10 @@ async function submitProposal() {
         admin: { name: get("aname"), email: get("aemail") },
         monthly_total: monthly,
         chairs: [],
-        zips_text: "Full national pool 215,331 lane-tagged; first cut set at kickoff." +
+        zips_text: "SELECTIONS: subscription 6-mo " + (prepay ? "PREPAID $8,100" : "$1,500/mo monthly") +
+          (addonsSel.length ? " | ADD-ONS: " + addonsSel.map(a => a.label + " $" + a.amt + "/mo").join(", ") : " | ADD-ONS: none") +
+          (aoSel.length ? " | AS ORDERED: " + aoSel.join(", ") : "") +
+          " | Full national pool 215,331 lane-tagged; first cut set at kickoff." +
           (get("website") ? " | CRM: " + get("website") : "") +
           (get("notes") ? " | NOTES: " + get("notes") : ""),
         delivery_endpoint: get("delivery"), website: get("website"),
