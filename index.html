@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R&amp;S Logistics Demand Program &#8212; Agreement &amp; Activation</title>
+<style>
+  :root { --navy:#0D2637; --blue:#006192; --cyan:#50A2CF; --red:#C22126; --ink:#1A2330; --mut:#5A6675;
+          --line:#E1E5EA; --wash:#F2F7FA; --good:#1F7A3D; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", system-ui, Arial, sans-serif; color: var(--ink); background: #EDF1F4; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 28px 18px 60px; }
+  .card { background: #fff; border-radius: 14px; box-shadow: 0 2px 14px rgba(13,38,55,.09); padding: 28px 30px; }
+
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+          border-bottom: 3px solid var(--navy); padding-bottom: 12px; flex-wrap: wrap; }
+  .head .brand { font-weight: 800; letter-spacing: .04em; font-size: 18px; color: var(--navy); }
+  .head .brand span { display:block; font-size: 10px; letter-spacing: .18em; color: var(--mut); font-weight: 600; }
+  .head .kicker { text-align: right; }
+  .head .kicker b { display: block; font-size: 11px; letter-spacing: .1em; color: var(--navy); }
+  .head .kicker span { font-size: 9.5px; color: var(--mut); letter-spacing: .06em; }
+
+  h1 { font-size: 23px; margin: 18px 0 6px; color: var(--navy); }
+  .momentum { background: var(--wash); border-left: 4px solid var(--cyan); padding: 12px 16px;
+              font-size: 13.5px; line-height: 1.5; margin: 12px 0 18px; border-radius: 0 8px 8px 0; }
+
+  h3 { font-size: 12px; color: var(--blue); letter-spacing: .08em; text-transform: uppercase; margin: 22px 0 10px; }
+  label { display: block; font-size: 12.5px; font-weight: 600; color: var(--navy); margin: 12px 0 4px; }
+  input[type=text], input[type=email], textarea {
+    width: 100%; padding: 9px 12px; border: 1.5px solid var(--line); border-radius: 8px;
+    font-size: 14px; font-family: inherit; background: #FDFEFF; }
+  input:focus, textarea:focus { outline: 2px solid var(--cyan); border-color: var(--blue); }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+  @media (max-width: 620px) { .row2 { grid-template-columns: 1fr; } }
+  .hint { font-size: 11.5px; color: var(--mut); margin-top: 3px; }
+
+  .live { font-size: 13px; line-height: 1.55; margin: 0 0 4px 18px; }
+  .live li { margin-bottom: 4px; }
+  .live b { color: var(--navy); }
+
+  .lineitem { display: flex; align-items: flex-start; gap: 12px; border: 1.5px solid var(--line);
+              border-radius: 10px; padding: 13px 15px; margin-bottom: 10px; }
+  .lineitem.locked { background: var(--wash); }
+  .lineitem input { width: 19px; height: 19px; margin-top: 2px; accent-color: var(--navy); flex: none; }
+  .lineitem .t b { font-size: 14px; color: var(--navy); }
+  .lineitem .t .inc { font-size: 9px; font-weight: 700; letter-spacing: .06em; color: var(--good);
+                      background: #E7F4EC; border-radius: 4px; padding: 2px 6px; margin-left: 6px; vertical-align: 2px; }
+  .lineitem .t .opt { font-size: 9px; font-weight: 700; letter-spacing: .06em; color: var(--mut);
+                      border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+  .lineitem .t p { font-size: 12px; color: var(--mut); line-height: 1.4; margin-top: 2px; }
+  .lineitem .price { margin-left: auto; font-weight: 700; color: var(--navy); white-space: nowrap; font-size: 14px; text-align: right; }
+  .lineitem .price small { font-weight: 400; color: var(--mut); }
+
+  .payrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .paychoice { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; display: flex; gap: 10px; align-items: flex-start; }
+  .paychoice input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--navy); }
+  .paychoice b { font-size: 13.5px; color: var(--navy); display: block; }
+  .paychoice span { font-size: 11.5px; color: var(--mut); }
+  .paychoice.sel { border-color: var(--blue); background: #F5FAFD; }
+
+  .total { display: flex; justify-content: space-between; align-items: baseline; background: var(--navy);
+           color: #fff; border-radius: 10px; padding: 14px 18px; margin-top: 14px; }
+  .total .lbl { font-size: 13px; letter-spacing: .04em; }
+  .total .amt { font-size: 24px; font-weight: 800; }
+  .total .amt small { font-size: 12px; font-weight: 400; color: #AFC5D4; }
+  .total.sub { background: var(--wash); color: var(--navy); padding: 11px 18px; margin-top: 8px; }
+  .total.sub .amt { font-size: 18px; }
+  .total.sub .amt small { color: var(--mut); }
+
+  .scope { background: #FBFCFE; border: 1.5px solid var(--line); border-radius: 10px; padding: 14px 16px; font-size: 12.5px; line-height: 1.5; }
+  .scope b { color: var(--navy); }
+  .scope ul { margin: 6px 0 6px 18px; }
+  .scope li { margin-bottom: 3px; color: var(--mut); }
+  .scope li b { color: var(--navy); }
+
+  .sigblock { background: var(--wash); border-radius: 10px; padding: 16px 18px; margin-top: 10px; }
+  .authbox { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font-size: 12.5px; line-height: 1.5; }
+  .authbox input { width: 20px; height: 20px; accent-color: var(--navy); flex: none; margin-top: 1px; }
+  .siginput { font-family: "Segoe Script", "Brush Script MT", cursive; font-size: 20px !important; }
+
+  .terms { font-size: 11px; color: var(--mut); line-height: 1.5; margin-top: 16px; }
+  .submit { width: 100%; background: var(--red); color: #fff; border: none; border-radius: 10px;
+            padding: 15px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 18px; font-family: inherit; }
+  .submit:hover { background: #a51b20; }
+  .submit:disabled { background: #8FA1B8; cursor: wait; }
+  .err { color: #B00020; font-size: 13px; margin-top: 10px; display: none; }
+
+  #done { display: none; text-align: center; padding: 40px 20px; }
+  #done .big { font-size: 46px; }
+  #done h2 { color: var(--navy); margin: 10px 0 8px; }
+  #done p { color: var(--mut); font-size: 14.5px; line-height: 1.6; max-width: 480px; margin: 0 auto 8px; }
+
+  .foot { text-align: center; font-size: 11px; color: var(--mut); margin-top: 18px; letter-spacing: .04em; }
+  .foot b { color: var(--navy); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="head">
+      <div class="brand">GROUPSERV<span>MANAGEMENT</span></div>
+      <div class="kicker"><b>THE R&amp;S LOGISTICS DEMAND PROGRAM</b><span>POWERED BY THE GROUPSERV MOMENTUM ENGINE</span></div>
+    </div>
+
+    <div id="form">
+      <h1>Agreement &amp; Activation</h1>
+      <div class="momentum"><b>The audience is already built.</b> 215,331 business contacts were observed
+      researching the exact services R&amp;S sells &#8212; 3PL, warehousing, fulfillment, cross-dock &#8212;
+      inside a rolling 30-day window, including <b>22,151 direct-contact-ready decision-makers</b>. It lives
+      in your dashboard today, tagged by lane, monitored daily. This agreement turns it on: warm touches go
+      out, and hand-raisers land in your inbox with the full contact record and a researched dossier behind
+      each one.</div>
+
+      <h3>What's live the day you sign</h3>
+      <ul class="live">
+        <li><b>Your in-market audience, monitored daily</b> &#8212; companies actively researching 3PL,
+        warehousing and fulfillment services, refreshed continuously; new entrants surface as they start
+        shopping.</li>
+        <li><b>Your portal &amp; dashboard, built to your process</b> &#8212; the full pool tagged by lane
+        (direct-contact ready &#183; work-email reachable &#183; nurture &amp; ads), with tiers, territories
+        and industry filters; delivery in whatever form your team works from (portal, CSV, CRM), on your
+        schedule.</li>
+        <li><b>Verification before release</b> &#8212; every contact you activate passes an independent
+        multi-step verification pass; what fails gets cut, and we tell you what was cut.</li>
+        <li><b>Deep Dive dossiers on activated leads</b> &#8212; company snapshot, why they're in-market,
+        the specific R&amp;S angle, and a suggested opener.</li>
+        <li><b>Meta connection included</b> &#8212; the same audience arms your Meta campaigns as a matched
+        audience; Google arming available the same way.</li>
+        <li><b>Room to grow without a rebuild</b> &#8212; additional audience lanes drop in as configuration:
+        the ~187,000-contact "outgrowing-FBA" e-commerce lane, or a custom intent model for food-grade,
+        nutraceutical, chemical and automotive storage.</li>
+      </ul>
+
+      <h3>The program</h3>
+      <div class="lineitem locked">
+        <input type="checkbox" checked disabled>
+        <div class="t"><b>Intent Data Engine &#8212; Subscription</b><span class="inc">THE FOUNDATION</span>
+          <p>Everything above, running continuously: the audience built and kept current for your target
+          markets, the portal and delivery built to your process, verification at release, dossiers on
+          activated leads, and the Meta connection. <b>Six-month initial engagement</b>, then month-to-month.</p></div>
+        <div class="price">$1,500<small>/mo</small></div>
+      </div>
+
+      <h3>Optional additions <span style="color:var(--mut);text-transform:none;letter-spacing:0;font-weight:400">&#8212; check what you want live at kickoff; add or drop any of these later</span></h3>
+      <div class="lineitem">
+        <input type="checkbox" id="o-warm" onchange="recalc()">
+        <div class="t"><b>Managed Warm-Email Outreach</b><span class="opt">OPTIONAL</span>
+          <p>We write, send and manage the sequences &#8212; outreach goes only to contacts showing live
+          buying research, re-verified before every send; responders land in your inbox or CRM. Excludes
+          third-party pass-throughs (sending domains, mailbox &amp; CRM licenses) &#8212; billed at cost,
+          no markup.</p></div>
+        <div class="price">+$500<small>/mo</small></div>
+      </div>
+      <div class="lineitem">
+        <input type="checkbox" id="o-pixel" onchange="recalc()">
+        <div class="t"><b>Website Visitor Pixel</b><span class="opt">OPTIONAL</span>
+          <p>Most visitors research you and leave without ever filling out a form. The pixel identifies
+          those otherwise-anonymous visitors &#8212; company and contact &#8212; and feeds them into the
+          engine for follow-up and retargeting.</p></div>
+        <div class="price">$100<small>/mo</small></div>
+      </div>
+      <div class="lineitem">
+        <input type="checkbox" id="o-ai" onchange="recalc()">
+        <div class="t"><b>AI Agents with Missed-Call Text-Back</b><span class="opt">OPTIONAL</span>
+          <p>Calls answered, qualified and routed; missed calls get an instant text so no inquiry goes
+          cold.</p></div>
+        <div class="price">$250<small>/mo</small></div>
+      </div>
+      <div class="lineitem">
+        <input type="checkbox" id="o-news" onchange="recalc()">
+        <div class="t"><b>Newsletter</b><span class="opt">OPTIONAL</span>
+          <p>Built, designed and deployed to your warm-email list to keep the audience engaged between
+          buying moments.</p></div>
+        <div class="price">$200<small>/mo</small></div>
+      </div>
+      <div class="lineitem">
+        <input type="checkbox" id="o-mail" onchange="recalc()">
+        <div class="t"><b>Targeted Direct Mail &#8212; 6&#215;9" Postcards</b><span class="opt">AS ORDERED</span>
+          <p>High-intent targeting included &#8212; cards go only to companies showing live 3PL-buying
+          signals. We run the entire deployment: design, print, addressing, postage and drop. Billed per
+          deployment as you order them &#8212; no monthly charge.</p></div>
+        <div class="price">$1.20<small>/card</small></div>
+      </div>
+      <div class="lineitem">
+        <input type="checkbox" id="o-magnet" onchange="recalc()">
+        <div class="t"><b>Lead Magnet Development &amp; Design</b><span class="opt">AS ORDERED</span>
+          <p>Guides, checklists, calculators that give a researching prospect a reason to raise their
+          hand. One-time per asset, billed as ordered &#8212; no monthly charge.</p></div>
+        <div class="price">$200<small>/each</small></div>
+      </div>
+      <div class="hint">Anything beyond these &#8212; additional campaigns, journeys, calendars, pipelines,
+      CRM automation &#8212; is quoted in writing before any work begins.</div>
+
+      <h3>Subscription billing</h3>
+      <div class="payrow">
+        <label class="paychoice sel" id="pc-monthly"><input type="radio" name="term" value="monthly" checked onchange="recalc()">
+          <span><b>Billed monthly</b><span>$1,500/month across the six-month engagement</span></span></label>
+        <label class="paychoice" id="pc-prepay"><input type="radio" name="term" value="prepay" onchange="recalc()">
+          <span><b>Six months in advance</b><span>10% off &#8212; $8,100 one payment ($1,350/mo equivalent)</span></span></label>
+      </div>
+
+      <h3>Payment method</h3>
+      <div class="payrow">
+        <label class="paychoice sel" id="pc-ach"><input type="radio" name="pay" value="ach" checked onchange="recalc()">
+          <span><b>Bank transfer (ACH)</b><span>Included &#8212; no processing fee</span></span></label>
+        <label class="paychoice" id="pc-card"><input type="radio" name="pay" value="card" onchange="recalc()">
+          <span><b>Credit card</b><span>+3% processing addition</span></span></label>
+      </div>
+
+      <div class="total"><span class="lbl">DUE AT SIGNING <span style="font-weight:400;color:#AFC5D4;" id="duewhat">&#183; first month</span></span><span class="amt" id="duenow">$1,500</span></div>
+      <div class="total sub"><span class="lbl">THEN MONTHLY <span style="font-weight:400;color:#5A6675;" id="monthwhat">&#183; subscription + selected additions</span></span><span class="amt" id="monthly">$1,500 <small>/mo</small></span></div>
+      <div class="total sub" id="asordered" style="display:none"><span class="lbl">AS ORDERED <span style="font-weight:400;color:#5A6675;">&#183; billed only when you order</span></span><span class="amt" style="font-size:14px" id="aobar"></span></div>
+
+      <h3>Program contact</h3>
+      <div class="row2">
+        <div><label>Primary contact name <span style="color:#B00020">*</span></label><input type="text" id="aname" placeholder="Who runs point on this program"></div>
+        <div><label>Primary contact email <span style="color:#B00020">*</span></label><input type="email" id="aemail" placeholder="Where reports &amp; portal access go"></div>
+      </div>
+      <div class="row2">
+        <div><label>Best phone for coordination</label><input type="text" id="delivery" placeholder="Cell or office"></div>
+        <div><label>CRM your team uses (if any)</label><input type="text" id="website" placeholder="We wire delivery to it at setup"></div>
+      </div>
+
+      <h3>Notes (optional)</h3>
+      <textarea id="notes" rows="3" placeholder="Priority regions or industries, first campaigns you have in mind, anything you want covered at kickoff."></textarea>
+
+      <h3>What happens after you sign</h3>
+      <div class="scope">
+        <ul>
+          <li><b>1. Payment link arrives by email</b> &#8212; the amount due at signing, billed via secure link.</li>
+          <li><b>2. Kickoff alignment call</b> &#8212; we set your first cut (footprint, industries, seniority), confirm delivery form (portal, CSV, CRM), and hand over your dashboard login.</li>
+          <li><b>3. First activation</b> &#8212; your first lead set passes the verification pass and lands with dossiers attached; selected additions (warm email, pixel, AI agents, newsletter) go into setup the same week.</li>
+          <li><b>4. The engine runs</b> &#8212; daily monitoring, continuous refresh, hand-raisers to your inbox; we review results with you on a cadence you choose.</li>
+        </ul>
+      </div>
+
+      <h3>Authorization</h3>
+      <div class="sigblock">
+        <div class="row2">
+          <div><label>Your name <span style="color:#B00020">*</span></label><input type="text" id="sname"></div>
+          <div><label>Title</label><input type="text" id="stitle"></div>
+        </div>
+        <div class="row2">
+          <div><label>Organization <span style="color:#B00020">*</span></label><input type="text" id="sorg" placeholder="Legal entity name" value="R&amp;S Logistics (R&amp;S Warehousing Solutions)"></div>
+          <div><label>Email <span style="color:#B00020">*</span></label><input type="email" id="semail"></div>
+        </div>
+        <label>Type your full name as your signature <span style="color:#B00020">*</span></label>
+        <input type="text" id="sig" class="siginput" placeholder="Signature">
+        <div class="authbox">
+          <input type="checkbox" id="auth">
+          <span>I am authorized to execute this agreement on behalf of the organization named above, and I
+          agree this electronically executed page constitutes the entire agreement for these services.
+          The <b>Intent Data Engine subscription carries a six-month initial engagement</b>, billed at
+          $1,500 per month &#8212; or, where the advance option is selected, $8,100 for the six months paid
+          at signing (a one-time 10% election available only at signing). After the initial engagement the
+          subscription continues month-to-month; either party may cancel with 30 days&#8217; written notice,
+          effective at the end of the current cycle. Optional additions are month-to-month and may be added
+          or dropped at any month boundary; as-ordered items (postcards, lead magnets) are billed only when
+          ordered and approved. The payment method selected applies to all billing; credit card payments
+          carry a 3% processing addition. Third-party pass-through costs (sending domains, mailbox and CRM
+          licenses, ad spend) are billed at cost with no markup. Audience data is licensed to our
+          organization for its own marketing use and will not be resold or redistributed; responsibility
+          for offer terms and outreach compliance rests with the sender.</span>
+        </div>
+      </div>
+
+      <div class="err" id="err"></div>
+      <button class="submit" id="go" onclick="submitProposal()">Execute &amp; Activate</button>
+      <div class="terms">Contact-level records are released only after passing the verification standard;
+      counts refresh continuously with the rolling research window. Fees exclude any applicable taxes.
+      Accepted for Groupserv Management: Greg Yates &#183; gyates@groupserv.biz</div>
+    </div>
+
+    <div id="done">
+      <div class="big">&#10003;</div>
+      <h2>Received &#8212; the engine is yours.</h2>
+      <p><b>What happens next:</b> your payment link arrives by email shortly. The moment it&#8217;s
+      confirmed, we&#8217;ll schedule the kickoff alignment call, set your first cut, and hand over your
+      dashboard login &#8212; your first verified lead set follows right behind it.</p>
+      <p>Data finds names. Momentum wins markets.</p>
+    </div>
+  </div>
+  <div class="foot"><b>GROUPSERV</b> &#183; Data finds names. Momentum wins markets.</div>
+</div>
+
+<script>
+const ENDPOINT = "https://pboxaamvtrgwnhgfccbv.supabase.co/functions/v1/proposal-submit";
+const TOKEN = "gsm-proposal-2026";
+const SUB = 1500, PREPAY = 8100;
+const ADDONS = [
+  { id: "o-warm",  label: "Managed Warm-Email Outreach", amt: 500 },
+  { id: "o-pixel", label: "Website Visitor Pixel",        amt: 100 },
+  { id: "o-ai",    label: "AI Agents + Missed-Call Text-Back", amt: 250 },
+  { id: "o-news",  label: "Newsletter",                   amt: 200 },
+];
+const ASORDERED = [
+  { id: "o-mail",   label: "6x9 postcards $1.20/card (as ordered)" },
+  { id: "o-magnet", label: "Lead magnets $200 each (as ordered)" },
+];
+function on(id) { return document.getElementById(id).checked; }
+function isCard() { return document.querySelector('input[name=pay]:checked').value === "card"; }
+function isPrepay() { return document.querySelector('input[name=term]:checked').value === "prepay"; }
+function fee(n) { return isCard() ? Math.round(n * 1.03) : n; }
+
+function recalc() {
+  const addons = ADDONS.filter(a => on(a.id)).reduce((s, a) => s + a.amt, 0);
+  const prepay = isPrepay();
+  const due = fee((prepay ? PREPAY : SUB) + addons);
+  const monthly = fee(addons + (prepay ? 0 : SUB));
+  document.getElementById("duenow").textContent = "$" + due.toLocaleString();
+  document.getElementById("duewhat").innerHTML = prepay
+    ? "&#183; six months prepaid (10% off) + first month of additions" : "&#183; first month";
+  document.getElementById("monthly").innerHTML = "$" + monthly.toLocaleString() + " <small>/mo" + (isCard() ? " incl. 3%" : "") + "</small>";
+  document.getElementById("monthwhat").innerHTML = prepay
+    ? "&#183; selected additions only &#8212; subscription resumes at $1,500/mo in month seven"
+    : "&#183; subscription + selected additions";
+  const ao = ASORDERED.filter(a => on(a.id)).map(a => a.label.replace(/ \(as ordered\)/, ""));
+  document.getElementById("asordered").style.display = ao.length ? "flex" : "none";
+  document.getElementById("aobar").textContent = ao.join(" · ");
+  document.getElementById("pc-monthly").classList.toggle("sel", !prepay);
+  document.getElementById("pc-prepay").classList.toggle("sel", prepay);
+  document.getElementById("pc-ach").classList.toggle("sel", !isCard());
+  document.getElementById("pc-card").classList.toggle("sel", isCard());
+}
+recalc();
+
+async function submitProposal() {
+  const err = document.getElementById("err");
+  err.style.display = "none";
+  const get = id => document.getElementById(id).value.trim();
+  if (!get("aname") || !get("aemail")) return showErr("Please enter the primary contact name and email.");
+  if (!get("sorg")) return showErr("Please enter the organization name.");
+  if (!get("sname") || !get("semail")) return showErr("Please enter your name and email.");
+  if (!get("sig")) return showErr("Please type your name as your signature.");
+  if (!document.getElementById("auth").checked) return showErr("Please check the authorization box.");
+  const prepay = isPrepay();
+  const addonsSel = ADDONS.filter(a => on(a.id));
+  const addons = addonsSel.reduce((s, a) => s + a.amt, 0);
+  const due = fee((prepay ? PREPAY : SUB) + addons);
+  const monthly = fee(addons + (prepay ? 0 : SUB));
+  const aoSel = ASORDERED.filter(a => on(a.id)).map(a => a.label);
+  const btn = document.getElementById("go");
+  btn.disabled = true; btn.textContent = "Executing…";
+  try {
+    const res = await fetch(ENDPOINT, { method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        token: TOKEN, program: "rs",
+        territory_name: get("sorg"),
+        plan: prepay ? "engine-6mo-prepaid" : "engine-6mo-monthly",
+        plan_label: "Intent Data Engine - 6-month engagement, " +
+          (prepay ? "PREPAID $8,100 (10% off)" : "$1,500/mo billed monthly") +
+          (addonsSel.length ? " + " + addonsSel.map(a => a.label + " $" + a.amt + "/mo").join(", ") : "") +
+          (aoSel.length ? " | AS ORDERED: " + aoSel.join(", ") : ""),
+        setup_fee: 0, due_now: due,
+        payment_method: isCard() ? "card" : "ach",
+        admin: { name: get("aname"), email: get("aemail") },
+        monthly_total: monthly,
+        chairs: [],
+        zips_text: "Full national pool 215,331 lane-tagged; first cut set at kickoff." +
+          (get("website") ? " | CRM: " + get("website") : "") +
+          (get("notes") ? " | NOTES: " + get("notes") : ""),
+        delivery_endpoint: get("delivery"), website: get("website"),
+        signer_name: get("sname"), signer_title: get("stitle"), signer_org: get("sorg"),
+        signer_email: get("semail"), signature_typed: get("sig"), authorized: true
+      })});
+    const j = await res.json();
+    if (!res.ok || !j.ok) throw new Error(j.error || "submit failed");
+    document.getElementById("form").style.display = "none";
+    document.getElementById("done").style.display = "block";
+    window.scrollTo({ top: 0 });
+  } catch (e) {
+    btn.disabled = false; btn.textContent = "Execute & Activate";
+    showErr("Something went wrong sending this — please try again, or email gyates@groupserv.biz.");
+  }
+}
+function showErr(m) { const e = document.getElementById("err"); e.textContent = m; e.style.display = "block"; }
+</script>
+</body>
+</html>
