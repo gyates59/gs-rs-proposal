@@ -8,7 +8,7 @@
   :root { --navy:#0D2637; --blue:#006192; --cyan:#50A2CF; --red:#C22126; --ink:#1A2330; --mut:#5A6675;
           --line:#E1E5EA; --wash:#F2F7FA; --good:#1F7A3D; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Segoe UI", system-ui, Arial, sans-serif; color: var(--ink); background: #EDF1F4; }
+  body { font-family: "Segoe UI", system-ui, Arial, sans-serif; color: var(--ink); background: #EDF1F4; font-size: 15.5px; }
   .wrap { max-width: 820px; margin: 0 auto; padding: 28px 18px 60px; }
   .card { background: #fff; border-radius: 14px; box-shadow: 0 2px 14px rgba(13,38,55,.09); padding: 28px 30px; }
   .head { display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -19,9 +19,16 @@
   .head .kicker b { display: block; font-size: 11px; letter-spacing: .1em; color: var(--navy); }
   .head .kicker span { font-size: 9.5px; color: var(--mut); letter-spacing: .06em; }
   h1 { font-size: 23px; margin: 18px 0 6px; color: var(--navy); }
-  .momentum { background: var(--wash); border-left: 4px solid var(--cyan); padding: 12px 16px;
-              font-size: 13.5px; line-height: 1.5; margin: 12px 0 18px; border-radius: 0 8px 8px 0; }
-  h3 { font-size: 12px; color: var(--blue); letter-spacing: .08em; text-transform: uppercase; margin: 22px 0 10px; }
+  .momentum { background: var(--wash); border-left: 4px solid var(--cyan); padding: 14px 18px;
+              font-size: 15px; line-height: 1.55; margin: 12px 0 20px; border-radius: 0 8px 8px 0; }
+  .glance { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 10px; margin: 4px 0 6px; }
+  .g { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; text-align: center; background: #fff; }
+  .g .gn { font-size: 13px; font-weight: 800; color: var(--navy); }
+  .g .gp { font-size: 21px; font-weight: 800; color: var(--navy); margin: 2px 0; }
+  .g .gp s { color: var(--mut); font-size: 13px; font-weight: 400; margin-right: 5px; }
+  .g .gp small { font-size: 11px; font-weight: 400; color: var(--mut); }
+  .g .gd { font-size: 11.5px; color: var(--mut); }
+  h3 { font-size: 13px; color: var(--blue); letter-spacing: .08em; text-transform: uppercase; margin: 26px 0 12px; }
   label { display: block; font-size: 12.5px; font-weight: 600; color: var(--navy); margin: 12px 0 4px; }
   input[type=text], input[type=email], textarea {
     width: 100%; padding: 9px 12px; border: 1.5px solid var(--line); border-radius: 8px;
@@ -29,33 +36,33 @@
   input:focus, textarea:focus { outline: 2px solid var(--cyan); border-color: var(--blue); }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
   @media (max-width: 620px) { .row2 { grid-template-columns: 1fr; } }
-  .hint { font-size: 11.5px; color: var(--mut); margin-top: 3px; }
+  .hint { font-size: 13px; color: var(--mut); margin-top: 5px; line-height: 1.5; }
   .stages { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin: 6px 0 4px; }
   @media (max-width: 620px) { .stages { grid-template-columns: 1fr 1fr; } }
   .stage { background: var(--wash); border-radius: 10px; padding: 11px 12px; }
-  .stage b { display:block; font-size: 17px; color: var(--navy); }
+  .stage b { display:block; font-size: 19px; color: var(--navy); }
   .stage .sl { font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: var(--blue); font-weight: 700; }
-  .stage p { font-size: 11px; color: var(--mut); line-height: 1.35; margin-top: 3px; }
+  .stage p { font-size: 12px; color: var(--mut); line-height: 1.4; margin-top: 4px; }
   .tier { border: 2px solid var(--line); border-radius: 12px; padding: 15px 17px; margin-bottom: 12px; cursor: pointer; display: block; }
   .tier.sel { border-color: var(--blue); background: #F5FAFD; }
   .tier .trow { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .tier input { width: 19px; height: 19px; accent-color: var(--navy); vertical-align: -3px; }
-  .tier .tname { font-size: 16px; font-weight: 800; color: var(--navy); }
+  .tier .tname { font-size: 18px; font-weight: 800; color: var(--navy); }
   .tier .tsub { font-size: 11px; color: var(--mut); }
-  .tier .tprice { margin-left: auto; font-size: 18px; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .tier .tprice { margin-left: auto; font-size: 20px; font-weight: 800; color: var(--navy); white-space: nowrap; }
   .tier .tprice small { font-size: 11px; font-weight: 400; color: var(--mut); }
   .rec { font-size: 9px; font-weight: 800; letter-spacing: .06em; color: #fff; background: var(--red);
          border-radius: 4px; padding: 2px 7px; vertical-align: 2px; }
-  .tier ul { margin: 9px 0 0 18px; font-size: 12.5px; line-height: 1.55; }
-  .tier li { margin-bottom: 3px; }
+  .tier ul { margin: 11px 0 0 18px; font-size: 14px; line-height: 1.6; }
+  .tier li { margin-bottom: 7px; }
   .tier li b { color: var(--navy); }
   .bonus { color: var(--good); font-weight: 700; }
-  .plus { font-size: 11.5px; color: var(--mut); font-style: italic; margin-top: 6px; }
+  .plus { font-size: 13px; color: var(--mut); font-style: italic; margin-top: 8px; }
   .payrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .paychoice { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; display: flex; gap: 10px; align-items: flex-start; }
   .paychoice input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--navy); }
   .paychoice b { font-size: 13.5px; color: var(--navy); display: block; }
-  .paychoice span { font-size: 11.5px; color: var(--mut); }
+  .paychoice span { font-size: 12.5px; color: var(--mut); }
   .paychoice.sel { border-color: var(--blue); background: #F5FAFD; }
   .total { display: flex; justify-content: space-between; align-items: baseline; background: var(--navy);
            color: #fff; border-radius: 10px; padding: 14px 18px; margin-top: 14px; }
@@ -65,13 +72,13 @@
   .total.sub .amt { font-size: 18px; }
   .total .lbl i { font-style: normal; font-weight: 400; color: #AFC5D4; }
   .total.sub .lbl i { color: var(--mut); }
-  .scope { background: #FBFCFE; border: 1.5px solid var(--line); border-radius: 10px; padding: 14px 16px; font-size: 12.5px; line-height: 1.5; }
+  .scope { background: #FBFCFE; border: 1.5px solid var(--line); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; line-height: 1.6; }
   .scope b { color: var(--navy); }
   .scope ul { margin: 6px 0 6px 18px; }
-  .scope li { margin-bottom: 3px; color: var(--mut); }
+  .scope li { margin-bottom: 8px; color: var(--mut); }
   .scope li b { color: var(--navy); }
   .sigblock { background: var(--wash); border-radius: 10px; padding: 16px 18px; margin-top: 10px; }
-  .authbox { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font-size: 12.5px; line-height: 1.5; }
+  .authbox { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font-size: 13px; line-height: 1.6; }
   .authbox input { width: 20px; height: 20px; accent-color: var(--navy); flex: none; margin-top: 1px; }
   .siginput { font-family: "Segoe Script", "Brush Script MT", cursive; font-size: 20px !important; }
   .terms { font-size: 11px; color: var(--mut); line-height: 1.5; margin-top: 16px; }
@@ -115,6 +122,15 @@
       experience-based estimate, not a promise. Everything held at any stage stays visible with the reason
       it was held &#8212; you always see what was cut and why.</div>
 
+      <h3>At a glance</h3>
+      <div class="glance">
+        <div class="g"><div class="gn">Intent Engine</div><div class="gp">$1,500<small>/mo</small></div><div class="gd">the data + dashboard foundation</div></div>
+        <div class="g"><div class="gn">Demand Engine</div><div class="gp"><s>$2,550</s>$2,250<small>/mo</small></div><div class="gd">we run the outreach for you</div></div>
+        <div class="g"><div class="gn">Full Lead Generation</div><div class="gp"><s>$3,250</s>$2,700<small>/mo</small></div><div class="gd">the whole engine + biggest discount</div></div>
+        <div class="g"><div class="gn">Precision Mail</div><div class="gp">from $300<small>/mo</small></div><div class="gd">optional add-on, any tier</div></div>
+      </div>
+      <div class="hint" style="margin-bottom:14px">Six-month engagement on every level &#183; pay six months in advance and take 10% off &#183; your leads are yours, always.</div>
+
       <h3>Choose your engagement <span style="color:var(--mut);text-transform:none;letter-spacing:0;font-weight:400">&#8212; all levels carry a six-month initial engagement, then month-to-month</span></h3>
       <div class="hint" style="margin-bottom:10px">Struck-through prices are the full program value with every bonus item priced in. The difference is a <b>one-time execution discount</b> &#8212; it applies when you execute from this page, the discounted amount is what bills, and it locks for the life of the engagement.</div>
 
@@ -136,11 +152,14 @@
         <span class="tprice"><s>$2,550</s> $2,250<small>/mo</small></span></span>
         <ul>
           <li>Everything in Intent Engine, plus:</li>
-          <li><b>Managed warm-email outreach</b> &#8212; we write, send and manage drip sequences to the isolated right people; responders land in your inbox or CRM. <b>There is a ramp:</b> sending infrastructure warms over the first weeks, sequences open around week three, and volume builds to full stride across the first sixty to ninety days &#8212; that ramp is what protects deliverability for the life of the program</li>
-          <li><b>One cost sits outside the package price:</b> the sending domains and mailboxes themselves. They are third-party costs billed to you <b>at cost, with no markup</b> &#8212; plan on a modest figure, typically under $100 a month plus a few dollars per domain per year. Everything else email-related is inside the package</li>
-          <li><b>The judgment layer</b> &#8212; every company in your working lane individually evaluated against your customer profile at onboarding, and every new entrant as it surfaces. This is the screening pass list vendors don&#8217;t offer &#8212; it&#8217;s what makes the data an order of magnitude more usable</li>
-          <li><b>Your customer list &amp; ICP wired in</b> &#8212; at kickoff we ask for two things: who you already serve, and who you consider a perfect customer. We use them to keep your current customers out of new-business outreach (or flag it when one of them shows buying research), to sharpen how every prospect is scored against your reality, and to steadily teach the engine what a great R&amp;S account looks like. Your list is used only for your program &#8212; never resold, never shared</li>
-          <li class="bonus">Included free with your execution discount: <b>website visitor pixel</b> &#8212; identifies the researchers already on your site who never fill out a form ($100/mo value) &#183; <b>the monthly newsletter</b> &#8212; designed, written, built and submitted for your review before a single send goes out, every month; the kind of retainer work agencies bill $750 and up for ($200/mo on our rate card &#8212; yours free) &#183; <b>two lead magnets</b> built at onboarding ($400 value)</li>
+          <li><b>Managed warm-email outreach</b> &#8212; we write, send and manage the drips; responders land in your inbox or CRM</li>
+          <li><b>An honest ramp</b> &#8212; sending domains warm over the first weeks; sequences open around week three and hit full stride by day 60&#8211;90. That ramp protects deliverability for the life of the program</li>
+          <li><b>The only cost outside the package:</b> the sending domains and mailboxes &#8212; billed <b>at cost, no markup</b>, typically under $100 a month</li>
+          <li><b>The judgment layer</b> &#8212; every company in your lane individually evaluated against your customer profile, at onboarding and as new ones surface. The screening pass list vendors don&#8217;t offer</li>
+          <li><b>Your customer list &amp; ICP wired in</b> &#8212; tell us who you serve and who your perfect customer is. We keep your customers out of new-business outreach (and flag it when one starts researching), sharpen every score, and teach the engine what a great R&amp;S account looks like. Used only for your program &#8212; never resold, never shared</li>
+          <li class="bonus">Free with execution: <b>website visitor pixel</b> &#8212; the researchers already on your site who never fill out a form ($100/mo value)</li>
+          <li class="bonus">Free with execution: <b>the monthly newsletter</b> &#8212; designed, written and submitted for your review every month. Agencies bill $750+ for this work; $200/mo on our rate card &#8212; yours free</li>
+          <li class="bonus">Free with execution: <b>two lead magnets</b> built at onboarding ($400 value)</li>
         </ul>
       </label>
 
@@ -161,11 +180,10 @@
 
       <h3>Optional add-on, any tier &#8212; precision direct mail</h3>
       <div class="scope" style="margin-bottom:10px">
-        <b>A card every month to your highest-qualified prospects &#8212; never bulk, never every-door.</b>
-        The list is refined against your ICP every month: your judged top accounts, plus anyone who has
-        opted in from a mailer or the newsletter. Data, design, printing and postage are all included at
-        our published $1.20 per card &#8212; with a 5% volume discount at each step up.
-        Bills monthly alongside your package; pause or resize any month.
+        <b>A card every month to your highest-qualified prospects &#8212; never bulk, never every-door.</b><br>
+        List refined to your ICP monthly, plus everyone who opts in from a mailer or the newsletter.
+        Data, design, print and postage included at our published $1.20 per card, 5% off each volume
+        step. Pause or resize any month.
       </div>
       <div class="payrow" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));">
         <label class="paychoice sel" id="m-none"><input type="radio" name="mail" value="none" checked onchange="recalc()">
@@ -181,11 +199,11 @@
       <h3>The plumbing we build and run &#8212; so there are no surprises</h3>
       <div class="scope">
         <ul>
-          <li><b>Sending domains &amp; mailboxes:</b> we stand up dedicated sending domains for the outreach &#8212; <b>never your main domain</b>, so your company&#8217;s email reputation is walled off from marketing volume. Domains and mailboxes are small third-party costs passed through at cost.</li>
+          <li><b>Sending domains &amp; mailboxes:</b> dedicated domains we stand up &#8212; <b>never your main domain</b> &#8212; so your company&#8217;s email reputation stays walled off. Small third-party costs, passed through at cost.</li>
           <li><b>Landing pages:</b> lead magnets and opt-ins live on branded pages we build and host &#8212; opt-ins flow wherever you want them.</li>
           <li><b>Website pixel:</b> installed with one small snippet on rslogistics.com; identified visitors feed your follow-up.</li>
-          <li><b>How a lead reaches you &#8212; two lanes, one market:</b> your team works the dashboard directly, finding fits and reaching out through your normal process, while we keep your name and credibility in front of that same market with drips, magnets and mail. When anyone raises a hand &#8212; a reply, an opt-in, a download &#8212; it flags <b>HOT</b> and goes to your salesperson the same day. We never work your phones or sit between your team and the customer.</li>
-          <li><b>Your leads are yours &#8212; full stop:</b> every lead, reply and opt-in this program generates belongs to R&amp;S. We charge no commission, no referral fee, and claim no ownership in any business that results &#8212; the subscription is the whole cost of the outreach. It&#8217;s restated in bold in the agreement below.</li>
+          <li><b>Two lanes, one market:</b> your team works the dashboard directly while we keep your name in front of that same market. Any hand-raise flags <b>HOT</b> and goes to your salesperson the same day. We never work your phones or sit between you and the customer.</li>
+          <li><b>Your leads are yours &#8212; full stop.</b> No commission, no referral fee, no claim on the business that results. The subscription is the whole cost of the outreach. Restated in bold in the agreement below.</li>
           <li><b>Where everything lands:</b> your choice at kickoff &#8212; your inbox, your CRM, or the dashboard. We wire it to how your team already works.</li>
         </ul>
       </div>
