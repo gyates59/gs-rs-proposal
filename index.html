@@ -163,18 +163,19 @@
       <div class="scope" style="margin-bottom:10px">
         <b>A card every month to your highest-qualified prospects &#8212; never bulk, never every-door.</b>
         The list is refined against your ICP every month: your judged top accounts, plus anyone who has
-        opted in from a mailer or the newsletter. Data, design, printing and postage are all included.
+        opted in from a mailer or the newsletter. Data, design, printing and postage are all included at
+        our published $1.20 per card &#8212; with a 5% volume discount at each step up.
         Bills monthly alongside your package; pause or resize any month.
       </div>
       <div class="payrow" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));">
         <label class="paychoice sel" id="m-none"><input type="radio" name="mail" value="none" checked onchange="recalc()">
           <span><b>No mail for now</b><span>add it any month later</span></span></label>
         <label class="paychoice" id="m-250"><input type="radio" name="mail" value="m250" onchange="recalc()">
-          <span><b>250 cards / month</b><span>$600/mo all-in</span></span></label>
+          <span><b>250 cards / month</b><span>$1.20/card &#8212; $300/mo all-in</span></span></label>
         <label class="paychoice" id="m-500"><input type="radio" name="mail" value="m500" onchange="recalc()">
-          <span><b>500 cards / month</b><span>$1,100/mo all-in</span></span></label>
+          <span><b>500 cards / month</b><span>$1.14/card (5% off) &#8212; $570/mo</span></span></label>
         <label class="paychoice" id="m-1000"><input type="radio" name="mail" value="m1000" onchange="recalc()">
-          <span><b>1,000 cards / month</b><span>$2,000/mo all-in</span></span></label>
+          <span><b>1,000 cards / month</b><span>$1.08/card (10% off) &#8212; $1,080/mo</span></span></label>
       </div>
 
       <h3>The plumbing we build and run &#8212; so there are no surprises</h3>
@@ -184,6 +185,7 @@
           <li><b>Landing pages:</b> lead magnets and opt-ins live on branded pages we build and host &#8212; opt-ins flow wherever you want them.</li>
           <li><b>Website pixel:</b> installed with one small snippet on rslogistics.com; identified visitors feed your follow-up.</li>
           <li><b>How a lead reaches you &#8212; two lanes, one market:</b> your team works the dashboard directly, finding fits and reaching out through your normal process, while we keep your name and credibility in front of that same market with drips, magnets and mail. When anyone raises a hand &#8212; a reply, an opt-in, a download &#8212; it flags <b>HOT</b> and goes to your salesperson the same day. We never work your phones or sit between your team and the customer.</li>
+          <li><b>Your leads are yours &#8212; full stop:</b> every lead, reply and opt-in this program generates belongs to R&amp;S. We charge no commission, no referral fee, and claim no ownership in any business that results &#8212; the subscription is the whole cost of the outreach. It&#8217;s restated in bold in the agreement below.</li>
           <li><b>Where everything lands:</b> your choice at kickoff &#8212; your inbox, your CRM, or the dashboard. We wire it to how your team already works.</li>
         </ul>
       </div>
@@ -288,9 +290,9 @@ const TIERS = {
 };
 const MAIL = {
   none:  { label: "no mail add-on",       amt: 0 },
-  m250:  { label: "250 cards/mo mail",    amt: 600 },
-  m500:  { label: "500 cards/mo mail",    amt: 1100 },
-  m1000: { label: "1,000 cards/mo mail",  amt: 2000 },
+  m250:  { label: "250 cards/mo mail @$1.20",  amt: 300 },
+  m500:  { label: "500 cards/mo mail @$1.14",  amt: 570 },
+  m1000: { label: "1,000 cards/mo mail @$1.08", amt: 1080 },
 };
 function tierKey() { return document.querySelector('input[name=tier]:checked').value; }
 function mailKey() { return document.querySelector('input[name=mail]:checked').value; }
